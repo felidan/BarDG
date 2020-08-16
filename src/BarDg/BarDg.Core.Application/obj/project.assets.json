@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "BarDg.Core.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/BarDg.Core.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BarDg.Core.Domain.dll": {}
+        }
       }
     }
   },
@@ -678,10 +688,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "BarDg.Core.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BarDg.Core.Domain/BarDg.Core.Domain.csproj",
+      "msbuildProject": "../BarDg.Core.Domain/BarDg.Core.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "BarDg.Core.Domain >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -714,7 +730,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Projetos\\BarDG\\src\\BarDg\\BarDg.Core.Domain\\BarDg.Core.Domain.csproj": {
+              "projectPath": "D:\\Projetos\\BarDG\\src\\BarDg\\BarDg.Core.Domain\\BarDg.Core.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

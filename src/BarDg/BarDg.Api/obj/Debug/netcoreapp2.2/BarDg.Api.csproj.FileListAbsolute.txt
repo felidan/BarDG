@@ -12,3 +12,10 @@ D:\Projetos\BarDG\src\BarDg\BarDg.Api\obj\Debug\netcoreapp2.2\BarDg.Api.Assembly
 D:\Projetos\BarDG\src\BarDg\BarDg.Api\obj\Debug\netcoreapp2.2\BarDg.Api.RazorTargetAssemblyInfo.cache
 D:\Projetos\BarDG\src\BarDg\BarDg.Api\obj\Debug\netcoreapp2.2\BarDg.Api.dll
 D:\Projetos\BarDG\src\BarDg\BarDg.Api\obj\Debug\netcoreapp2.2\BarDg.Api.pdb
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\bin\Debug\netcoreapp2.2\BarDg.Core.Application.dll
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\bin\Debug\netcoreapp2.2\BarDg.Core.Domain.dll
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\bin\Debug\netcoreapp2.2\BarDg.Infra.Repository.dll
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\bin\Debug\netcoreapp2.2\BarDg.Core.Application.pdb
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\bin\Debug\netcoreapp2.2\BarDg.Infra.Repository.pdb
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\bin\Debug\netcoreapp2.2\BarDg.Core.Domain.pdb
+D:\Projetos\BarDG\src\BarDg\BarDg.Api\obj\Debug\netcoreapp2.2\BarDg.Api.csproj.CopyComplete

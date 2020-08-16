@@ -5,6 +5,6 @@ namespace BarDg.Core.Domain.Repositories
 {
     public interface ILoginRepository
     {
-        Task<Resultado> LoginAsync(UsuarioSistema usuarioSistema);
+        Task<UsuarioSistema> LoginAsync(UsuarioSistema usuarioSistema);
     }
 }

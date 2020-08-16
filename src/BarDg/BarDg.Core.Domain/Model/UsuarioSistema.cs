@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BarDg.Core.Domain.Model
+﻿namespace BarDg.Core.Domain.Model
 {
     public class UsuarioSistema
     {
@@ -10,5 +6,6 @@ namespace BarDg.Core.Domain.Model
         public string Login { get; set; }
         public string Senha { get; set; }
         public bool Ativo { get; set; }
+        public bool SenhaOk { get; set; }
     }
 }

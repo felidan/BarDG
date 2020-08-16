@@ -6,6 +6,6 @@ namespace BarDg.Core.Domain.Services
     public interface ILoginService
     {
         Task<Resultado> LoginAsync(UsuarioSistema usuarioSistema);
-        string GerarToken(UsuarioSistema usuarioSistema);
+        Resultado GerarToken(UsuarioSistema usuarioSistema);
     }
 }

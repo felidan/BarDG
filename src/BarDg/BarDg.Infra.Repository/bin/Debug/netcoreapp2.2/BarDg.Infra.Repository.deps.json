@@ -1,0 +1,159 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "954b832312f2b256b5db73974dd427dda50a53db"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "BarDg.Infra.Repository/1.0.0": {
+        "dependencies": {
+          "BarDg.Core.Domain": "1.0.0",
+          "Dapper": "2.0.35",
+          "Dapper.FluentMap": "1.8.1",
+          "Dapper.FluentMap.Dommel": "1.7.1",
+          "Dommel": "1.11.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.2.0.0",
+          "System.Data.SqlClient": "4.5.0.0"
+        },
+        "runtime": {
+          "BarDg.Infra.Repository.dll": {}
+        }
+      },
+      "Dapper/2.0.35": {
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.35.21366"
+          }
+        }
+      },
+      "Dapper.FluentMap/1.8.1": {
+        "dependencies": {
+          "Dapper": "2.0.35"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.FluentMap.dll": {
+            "assemblyVersion": "1.8.1.0",
+            "fileVersion": "1.8.1.0"
+          }
+        }
+      },
+      "Dapper.FluentMap.Dommel/1.7.1": {
+        "dependencies": {
+          "Dapper": "2.0.35",
+          "Dapper.FluentMap": "1.8.1",
+          "Dommel": "1.11.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.FluentMap.Dommel.dll": {
+            "assemblyVersion": "1.7.1.0",
+            "fileVersion": "1.7.1.0"
+          }
+        }
+      },
+      "Dommel/1.11.0": {
+        "dependencies": {
+          "Dapper": "2.0.35",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dommel.dll": {
+            "assemblyVersion": "1.11.0.0",
+            "fileVersion": "1.11.0.0"
+          }
+        }
+      },
+      "System.ComponentModel.Annotations/4.5.0": {},
+      "System.Reflection.Emit.Lightweight/4.7.0": {},
+      "BarDg.Core.Domain/1.0.0": {
+        "runtime": {
+          "BarDg.Core.Domain.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/2.2.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18315"
+          }
+        }
+      },
+      "System.Data.SqlClient/4.5.0.0": {
+        "runtime": {
+          "System.Data.SqlClient.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.6.27110.4"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BarDg.Infra.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Dapper/2.0.35": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/xAgd8BO8EDnJ0sURWEV8LptHHvTKxoYiT63YUF2U/yWE2VyUCqR2jcrtEyNngT9Kjzppecz95UKiBla3PnR7g==",
+      "path": "dapper/2.0.35",
+      "hashPath": "dapper.2.0.35.nupkg.sha512"
+    },
+    "Dapper.FluentMap/1.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ItbccBxRLZR/WOGxqI0mVsPOFNStU9hz3rSb+FoGK7tveCuUhC+dBdAqN1uniQAz+TbpVH2DlCzPG+jzHNwKWg==",
+      "path": "dapper.fluentmap/1.8.1",
+      "hashPath": "dapper.fluentmap.1.8.1.nupkg.sha512"
+    },
+    "Dapper.FluentMap.Dommel/1.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tR0Bpnl06kGavxYvm/iQyE4cryrpMjP2XF6BXKb4x67UJvSmoJ8GNr7xuyf59laOETI/gPf3A/DwP9lWT6Ye4g==",
+      "path": "dapper.fluentmap.dommel/1.7.1",
+      "hashPath": "dapper.fluentmap.dommel.1.7.1.nupkg.sha512"
+    },
+    "Dommel/1.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+ihEO5hktKLtFpv/Kd6AWWDW2tCJJfuw43D3VOismvdRyKtqBKDgZFpwMqLQYap0gZtW+9LAYX5mEukWQev5rg==",
+      "path": "dommel/1.11.0",
+      "hashPath": "dommel.1.11.0.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
+      "path": "system.componentmodel.annotations/4.5.0",
+      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit.Lightweight/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
+      "path": "system.reflection.emit.lightweight/4.7.0",
+      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+    },
+    "BarDg.Core.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/2.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.SqlClient/4.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

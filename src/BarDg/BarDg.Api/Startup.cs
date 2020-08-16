@@ -1,4 +1,6 @@
-﻿using BarDg.Api.Config;
+﻿using AutoMapper;
+using BarDg.Api.Config;
+using BarDg.Infra.Repository.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -21,11 +23,14 @@ namespace BarDg.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            Mapper.Initialize(x => x.AddProfile<AutoMapperConfig>());
+            services.DependencyInjectionConfiguration(Configuration);
             services.SwaggerConfiguration();
             IdentityModelEventSource.ShowPII = true;
             services.AddCors();
             services.JwtConfiguration(Configuration);
-            
+            RegisterMapping.Registrar();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

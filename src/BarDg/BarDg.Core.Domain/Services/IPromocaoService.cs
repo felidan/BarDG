@@ -6,6 +6,6 @@ namespace BarDg.Core.Domain.Services
 {
     public interface IPromocaoService
     {
-        Task<List<Pedido>> AplicarPromocaoAtivaAsync(List<Pedido> pedidos);
+        Task<List<Pedido>> AplicarPromocaoAsync(List<Pedido> pedidos);
     }
 }
