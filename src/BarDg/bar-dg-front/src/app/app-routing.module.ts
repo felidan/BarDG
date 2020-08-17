@@ -7,7 +7,7 @@ import { NotaFiscalComponent } from './nota-fiscal/nota-fiscal.component';
 const routes: Routes = [
   { path: '', redirectTo: '/cardapio', pathMatch: 'full'},
   { path: 'cardapio', component: CardapioComponent},
-  { path: 'nota-fiscal', component: NotaFiscalComponent}
+  { path: 'nota-fiscal/:idComanda', component: NotaFiscalComponent}
 ];
 
 @NgModule({

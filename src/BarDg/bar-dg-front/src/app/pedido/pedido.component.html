@@ -4,7 +4,9 @@
             <h5 class="card-title">{{pedido.nome}}</h5>
             <p class="card-text">Preço: {{pedido.preco | currency:'BRL':'symbol':'1.2-2':'pt'}}</p>
             
-            <button class="btn btn-dark" (click)="adicionar()">+</button>
+
+            <button class="btn btn-dark" (click)="adicionar()" *ngIf="habilita() === 1">+</button>
+            <button class="btn btn-dark" (click)="adicionar()" *ngIf="habilita() === 0" disabled>+</button>
             <button class="btn btn-ligth" disabled>
                 <strong>{{pedido.quantidade}}</strong>
             </button>

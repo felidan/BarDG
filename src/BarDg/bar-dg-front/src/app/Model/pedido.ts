@@ -4,5 +4,6 @@ export interface Pedido {
     preco: number,
     quantidade: number,
     desconto: number,
-    acao: string
+    acao: string,
+    idComanda: number
   }

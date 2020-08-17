@@ -16,6 +16,9 @@ namespace BarDg.Api.Config
 
             CreateMap<UsuarioSistemaDto, UsuarioSistema>();
             CreateMap<UsuarioSistema, UsuarioSistemaDto>();
+
+            CreateMap<ComandaDto, Comanda>();
+            CreateMap<Comanda, ComandaDto>();
         }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BarDg.Infra.Repository.Repositories
@@ -13,12 +14,32 @@ namespace BarDg.Infra.Repository.Repositories
     public class ComandaRepository : IComandaRepository
     {
         private readonly string _connectionString;
-        
+
         public ComandaRepository(IConfiguration configuration)
         {
             _connectionString = configuration["ConnectionString"];
         }
-        
+
+        public async Task<int> AbrirComandaAsync()
+        {
+            try
+            {
+                using (IDbConnection con = new SqlConnection(_connectionString))
+                {
+                    var query = @"INSERT INTO [TbBDG_Comanda] VALUES (GETDATE())
+                                  SELECT SCOPE_IDENTITY()";
+
+                    int idComanda = await con.QuerySingleOrDefaultAsync<int>(query);
+
+                    return idComanda;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<List<Pedido>> BuscarPedidoPorComandaAsync(int idComanda)
         {
             try
@@ -35,7 +56,7 @@ namespace BarDg.Infra.Repository.Repositories
                     return pedidos.AsList();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -75,7 +96,7 @@ namespace BarDg.Infra.Repository.Repositories
                     });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -87,16 +108,15 @@ namespace BarDg.Infra.Repository.Repositories
             {
                 using (IDbConnection con = new SqlConnection(_connectionString))
                 {
-                    var query = @"INSERT INTO [TbBDG_Comanda] VALUES (GETDATE())
-                                  SELECT SCOPE_IDENTITY()";
-
-                    var idComanda = await con.QuerySingleOrDefaultAsync<int>(query);
-
-                    if (idComanda > 0)
+                    if(pedidos.Count > 0)
                     {
+                        var idComanda = pedidos.First().IdComanda;
+
+                        await LimparComandaAsync(idComanda);
+
                         foreach (var pedido in pedidos)
                         {
-                            query = @"INSERT INTO[TbBDG_ComandaPedido] VALUES(@idComanda, @Id, @Desconto)";
+                            var query = @"INSERT INTO[TbBDG_ComandaPedido] VALUES(@IdComanda, @Id, @Desconto)";
 
                             await con.ExecuteAsync(query, new
                             {
@@ -105,12 +125,14 @@ namespace BarDg.Infra.Repository.Repositories
                                 pedido.Desconto
                             });
                         }
+
+                        return idComanda;
                     }
 
-                    return idComanda;
+                    return 0;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }

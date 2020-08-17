@@ -10,5 +10,6 @@ namespace BarDg.Core.Domain.Repositories
         Task LimparComandaAsync(int idComanda);
         Task<List<Pedido>> BuscarPedidoPorComandaAsync(int idComanda);
         Task<List<Pedido>> BuscarPedidosAsync();
+        Task<int> AbrirComandaAsync();
     }
 }

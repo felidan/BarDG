@@ -3,12 +3,12 @@
 
       <section class="content-header">
         <h2>
-          Nota Fiscal da comanda X
+          Nota Fiscal da comanda #{{notaFiscal.idComanda}}
         </h2>
       </section>
 
       <section class="content">
-        <p>nota-fiscal works!</p>
+        <p>{{notaFiscal | json}}</p>
 
         <button class="btn btn-info" (click)="novaComanda()">Abrir nova comanda</button>
       </section>

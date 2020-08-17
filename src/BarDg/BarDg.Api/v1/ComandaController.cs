@@ -21,19 +21,14 @@ namespace BarDg.Api.v1
             _comandaService = comandaService;
         }
 
-        [Authorize]
-        [HttpPost("RegistrarComanda")]
-        public async Task<IActionResult> RegistrarComandaAsync([FromBody] List<PedidoDto> pedidos)
+        //[Authorize]
+        [HttpGet("AbrirComanda")]
+        public async Task<IActionResult> AbrirComandaAsync()
         {
             try
             {
-                if (pedidos.Count > 0)
-                {
-                    var idComanda = await _comandaService.RegistrarComandaAsync(Mapper.Map<List<Pedido>>(pedidos));
-                    return StatusCode(200, new { idComanda });
-                }
-
-                return StatusCode(204, "Pedido inválido");
+                var idComanda = await _comandaService.AbrirComandaAsync();
+                return StatusCode(200, idComanda);
             }
             catch (Exception ex)
             {
@@ -42,14 +37,30 @@ namespace BarDg.Api.v1
             }
         }
 
-        [Authorize]
+        //[Authorize]
+        [HttpPost("RegistrarComanda")]
+        public async Task<IActionResult> RegistrarComandaAsync([FromBody] List<PedidoDto> pedidos)
+        {
+            try
+            {
+                var idComanda = await _comandaService.RegistrarComandaAsync(Mapper.Map<List<Pedido>>(pedidos));
+                return StatusCode(200, idComanda);
+            }
+            catch (Exception ex)
+            {
+                // TODO - Gravar log
+                return StatusCode(500, "Ocorreu um erro ao processar a requisição");
+            }
+        }
+
+        //[Authorize]
         [HttpDelete("LimparComanda/{idComanda}")]
         public async Task<IActionResult> LimparComandaAsync(int idComanda)
         {
             try
             {
                 await _comandaService.LimparComandaAsync(idComanda);
-                return StatusCode(200, "Ok");
+                return StatusCode(200, idComanda);
 
             }
             catch (Exception ex)
@@ -59,7 +70,7 @@ namespace BarDg.Api.v1
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("GerarNotaFiscal/{idComanda}")]
         public async Task<IActionResult> GerarNotaFiscalAsync(int idComanda)
         {
@@ -81,7 +92,7 @@ namespace BarDg.Api.v1
         {
             try
             {
-                var pedidos =  Mapper.Map<List<PedidoDto>>(await _comandaService.BuscarTodosPedidosAsync());
+                var pedidos = Mapper.Map<List<PedidoDto>>(await _comandaService.BuscarTodosPedidosAsync());
                 return StatusCode(200, pedidos);
             }
             catch (Exception ex)

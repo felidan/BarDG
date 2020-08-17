@@ -28,7 +28,13 @@ export class PedidoComponent implements OnInit {
       this.pedido.acao = '-'
       this.evento.emit(this.pedido)
     }
-    
+  }
+
+  habilita(){
+    if(this.pedido.id == 3 && this.pedido.quantidade >= 3){
+      return 0
+    }
+    return 1
   }
 
 }

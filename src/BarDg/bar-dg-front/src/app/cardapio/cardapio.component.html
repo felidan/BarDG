@@ -2,9 +2,11 @@
     <div class="container">
 
       <section class="content-header">
+        <br>
         <h2>
-          Cardápio do DG
+          Cardápio do DG - Comanda #{{comanda.idComanda}}
         </h2>
+        <br>
       </section>
 
       <section class="content">
@@ -34,7 +36,7 @@
         
         <div class="row">
           <div style="padding-left: 15px;">
-            <button class="btn btn-danger">Limpar Comanda</button>
+            <button class="btn btn-danger" (click)="eventoLimparComanda()">Limpar Comanda</button>
           </div>
           
           <div style="padding-left: 15px;">
