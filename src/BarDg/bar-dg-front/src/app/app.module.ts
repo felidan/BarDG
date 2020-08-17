@@ -10,6 +10,8 @@ import { registerLocaleData } from '@angular/common';
 import { ServicesService } from './services.service';
 import { PromocoesComponent } from './promocoes/promocoes.component';
 import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotaFiscalComponent } from './nota-fiscal/nota-fiscal.component';
 registerLocaleData(localePt);
 
 @NgModule({
@@ -18,7 +20,8 @@ registerLocaleData(localePt);
     CardapioComponent,
     PedidoComponent,
     PromocoesComponent,
-    CarrinhoComprasComponent
+    CarrinhoComprasComponent,
+    NotaFiscalComponent
   ],
   exports: [
     PedidoComponent
@@ -26,7 +29,8 @@ registerLocaleData(localePt);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [ServicesService],
   bootstrap: [AppComponent],

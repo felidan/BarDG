@@ -26,33 +26,44 @@
         </div>
 
         <div class="row">
-          <p>
-           <strong> Total:</strong>  TODO Incluir o Total
-          </p>
+          <p> Total: </p>
+          <h4> {{totalPedido() | currency:'BRL':'symbol':'1.2-2':'pt' }}</h4>
         </div>
-
+        
+        <br>
+        
         <div class="row">
           <div style="padding-left: 15px;">
             <button class="btn btn-danger">Limpar Comanda</button>
           </div>
           
           <div style="padding-left: 15px;">
-            <button class="btn btn-info">Vizualizar Prévia</button>
+            <button class="btn btn-info" (click)="open(content)">Vizualizar Prévia</button>
           </div>
 
           <div style="padding-left: 15px;">
-            <button class="btn btn-success">Fechar Comanda</button>
+            <button class="btn btn-success" (click)="fecharComanda()">Fechar Comanda</button>
           </div>
           
-        </div>
-
-        <div class="row">
-          
-          <bdg-carrinho-compras
-            [pedidosComprados]="pedidosComprados"></bdg-carrinho-compras>
-        
         </div>
 
       </section>
     </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Prévia da comanda</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+          
+      <bdg-carrinho-compras 
+        [pedidosComprados]="pedidosComprados"></bdg-carrinho-compras>
+    
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>

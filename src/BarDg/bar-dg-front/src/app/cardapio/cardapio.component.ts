@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from '../Model/pedido';
 import { ServicesService } from '../services.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bdg-cardapio',
@@ -8,7 +10,7 @@ import { ServicesService } from '../services.service';
 })
 export class CardapioComponent implements OnInit {
 
-  constructor(private service: ServicesService) { }
+  constructor(private service: ServicesService, private modalService: NgbModal, private router: Router) { }
 
   pedidos: Pedido[]
   pedidosComprados: Pedido[]
@@ -56,11 +58,26 @@ export class CardapioComponent implements OnInit {
 
       this.pedidosComprados = pedidosCalculados;
 
-      console.log('antes')
-      console.log(pedidosComprados);
-      console.log('depois')
-      console.log(pedidosCalculados);
-
     });
+  }
+
+  totalPedido(){
+    var total = 0;
+
+    if(this.pedidosComprados !== undefined){
+      this.pedidosComprados.forEach(x => {
+        total += (x.preco - x.desconto)
+      });
+    }
+    
+    return total;
+  }
+
+  open(context: any){
+    this.modalService.open(context);
+  }
+
+  fecharComanda(){
+    this.router.navigate(['/nota-fiscal']);
   }
 }
