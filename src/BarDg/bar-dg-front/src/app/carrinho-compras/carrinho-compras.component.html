@@ -1,0 +1,17 @@
+<div>
+    <h4>
+        Prévia dos pedidos
+    </h4>
+    <div class="row" *ngFor="let pedidoComprado of pedidosComprados;">
+
+    <div *ngIf="pedidoComprado.desconto > 0">
+        <p > {{pedidoComprado.nome}}:  <s>{{ pedidoComprado.preco  | currency:'BRL':'symbol':'1.2-2':'pt' }}</s> {{ pedidoComprado.preco - pedidoComprado.desconto  | currency:'BRL':'symbol':'1.2-2':'pt' }}</p>
+    </div>
+    
+    <div *ngIf="pedidoComprado.desconto == 0">
+        <p> {{pedidoComprado.nome}}:  {{ pedidoComprado.preco | currency:'BRL':'symbol':'1.2-2':'pt' }}</p>
+    </div>
+    
+    <br>
+</div>
+</div>

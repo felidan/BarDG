@@ -20,12 +20,14 @@ namespace BarDg.Api.v1
             _promocaoService = promocaoService;
         }
 
+        //[Authorize]
         [HttpPost("AplicarPromocao")]
-        public async Task<IActionResult> AplicarPromocaoAsync([FromBody] List<PedidoDto> pedidos)
+        public async Task<IActionResult> AplicarPromocao([FromBody] List<PedidoDto> pedidos)
         {
+            // arrumar o warning
             try
             {
-                var pedidosComPromocao = await _promocaoService.AplicarPromocaoAsync(Mapper.Map<List<Pedido>>(pedidos));
+                var pedidosComPromocao = _promocaoService.AplicarPromocao(Mapper.Map<List<Pedido>>(pedidos));
                 return StatusCode(200, pedidosComPromocao);
             }
             catch (Exception ex)

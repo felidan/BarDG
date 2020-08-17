@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BarDg.Api.Dto
+﻿namespace BarDg.Api.Dto
 {
     public class PedidoDto
     {
@@ -12,5 +7,6 @@ namespace BarDg.Api.Dto
         public string Nome { get; set; }
         public decimal Preco { get; set; }
         public decimal Desconto { get; set; }
+        public int Quantidade { get; set; }
     }
 }

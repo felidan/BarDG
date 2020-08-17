@@ -1,0 +1,14 @@
+<div class="col-sm-6 col-xs-12">
+    <div class="card" style="width: 15rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{pedido.nome}}</h5>
+            <p class="card-text">Preço: {{pedido.preco | currency:'BRL':'symbol':'1.2-2':'pt'}}</p>
+            
+            <button class="btn btn-dark" (click)="adicionar()">+</button>
+            <button class="btn btn-ligth" disabled>
+                <strong>{{pedido.quantidade}}</strong>
+            </button>
+            <button class="btn btn-dark" (click)="remover()">-</button>
+        </div>
+    </div>
+</div>

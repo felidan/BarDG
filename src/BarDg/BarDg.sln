@@ -9,13 +9,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infra", "2 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Core", "3 - Core", "{A700D2F4-404A-4091-B987-8DB40074C161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDg.Api", "BarDg.Api\BarDg.Api.csproj", "{DA79B433-0CFB-49F0-8359-006D5F595E10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarDg.Api", "BarDg.Api\BarDg.Api.csproj", "{DA79B433-0CFB-49F0-8359-006D5F595E10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDg.Core.Domain", "BarDg.Core.Domain\BarDg.Core.Domain.csproj", "{98BAAD6D-929F-41FB-86F4-EF2F887BCD6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarDg.Core.Domain", "BarDg.Core.Domain\BarDg.Core.Domain.csproj", "{98BAAD6D-929F-41FB-86F4-EF2F887BCD6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDg.Core.Application", "BarDg.Core.Application\BarDg.Core.Application.csproj", "{F680396D-6EC1-4406-9757-D21E92159397}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarDg.Core.Application", "BarDg.Core.Application\BarDg.Core.Application.csproj", "{F680396D-6EC1-4406-9757-D21E92159397}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDg.Infra.Repository", "BarDg.Infra.Repository\BarDg.Infra.Repository.csproj", "{82832D3E-0E53-4104-B5EC-EAB6381BD197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarDg.Infra.Repository", "BarDg.Infra.Repository\BarDg.Infra.Repository.csproj", "{82832D3E-0E53-4104-B5EC-EAB6381BD197}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "bar-dg-front", "bar-dg-front\", "{013831A5-DEA0-4936-B8CB-9ED6D54DA227}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51223"
+		Debug.AspNetCompiler.PhysicalPath = "bar-dg-front\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51223\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51223"
+		Release.AspNetCompiler.PhysicalPath = "bar-dg-front\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51223\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51223"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +59,10 @@ Global
 		{82832D3E-0E53-4104-B5EC-EAB6381BD197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82832D3E-0E53-4104-B5EC-EAB6381BD197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82832D3E-0E53-4104-B5EC-EAB6381BD197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +72,7 @@ Global
 		{98BAAD6D-929F-41FB-86F4-EF2F887BCD6E} = {A700D2F4-404A-4091-B987-8DB40074C161}
 		{F680396D-6EC1-4406-9757-D21E92159397} = {A700D2F4-404A-4091-B987-8DB40074C161}
 		{82832D3E-0E53-4104-B5EC-EAB6381BD197} = {99B3B129-FBAF-431D-A343-B5FB9BE263D8}
+		{013831A5-DEA0-4936-B8CB-9ED6D54DA227} = {711085DD-8B03-4D8D-95CC-564FBD839C74}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2422323E-459D-49AA-AC49-00D5D652BB7E}

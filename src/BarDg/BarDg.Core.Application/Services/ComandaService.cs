@@ -15,7 +15,12 @@ namespace BarDg.Core.Application.Services
         {
             _comandaRepository = comandaRepository;
         }
-        
+
+        public async Task<List<Pedido>> BuscarTodosPedidosAsync()
+        {
+            return await _comandaRepository.BuscarPedidosAsync();
+        }
+
         public async Task<NotaFiscal> GerarNotaFiscalAsync(int idComanda)
         {
             NotaFiscal notaFiscal = new NotaFiscal();

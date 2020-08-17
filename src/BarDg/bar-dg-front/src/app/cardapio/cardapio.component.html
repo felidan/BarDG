@@ -1,0 +1,58 @@
+<div class="content-wrapper">
+    <div class="container">
+
+      <section class="content-header">
+        <h2>
+          Cardápio do DG
+        </h2>
+      </section>
+
+      <section class="content">
+
+        <div class="row">
+
+            <bdg-pedido
+                style="padding-bottom: 25px;"
+                *ngFor="let pedido of pedidos;" 
+                [pedido]="pedido"
+                (evento)="eventoRecebido($event)"></bdg-pedido>
+            
+        </div>
+
+        <div class="row">
+
+          <bdg-promocoes></bdg-promocoes>
+        
+        </div>
+
+        <div class="row">
+          <p>
+           <strong> Total:</strong>  TODO Incluir o Total
+          </p>
+        </div>
+
+        <div class="row">
+          <div style="padding-left: 15px;">
+            <button class="btn btn-danger">Limpar Comanda</button>
+          </div>
+          
+          <div style="padding-left: 15px;">
+            <button class="btn btn-info">Vizualizar Prévia</button>
+          </div>
+
+          <div style="padding-left: 15px;">
+            <button class="btn btn-success">Fechar Comanda</button>
+          </div>
+          
+        </div>
+
+        <div class="row">
+          
+          <bdg-carrinho-compras
+            [pedidosComprados]="pedidosComprados"></bdg-carrinho-compras>
+        
+        </div>
+
+      </section>
+    </div>
+</div>

@@ -1,32 +1,52 @@
 ﻿using BarDg.Core.Domain.Enum;
 using BarDg.Core.Domain.Model;
-using BarDg.Core.Domain.Repositories;
 using BarDg.Core.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BarDg.Core.Application.Services
 {
     public class PromocaoService : IPromocaoService
     {
-        private readonly IComandaRepository _comandaRepository;
-
-        public PromocaoService(IComandaRepository comandaRepository)
+        public PromocaoService()
         {
-            _comandaRepository = comandaRepository;
+            
         }
 
-        public async Task<List<Pedido>> AplicarPromocaoAsync(List<Pedido> pedidos)
+        public List<Pedido> AplicarPromocao(List<Pedido> pedidos)
         {
-            var produtos = await _comandaRepository.BuscarPedidosAsync();
+            decimal quantidadeCerveja = pedidos.Count(x => x.Id == (int)PedidoEnum.CERVEJA);
+            decimal quantidadeConhaque = pedidos.Count(x => x.Id == (int)PedidoEnum.CONHAQUE);
+            decimal quantidadeSuco = pedidos.Count(x => x.Id == (int)PedidoEnum.SUCO);
+            
+            
+            decimal descontoPromocaoUm = Math.Truncate(Math.Min(quantidadeCerveja, quantidadeSuco));
 
-            if(pedidos.Count(x => x.Id == (int)PedidoEnum.CERVEJA) > 0)
+            quantidadeConhaque = Math.Truncate(quantidadeConhaque / 3);
+            quantidadeCerveja = Math.Truncate(quantidadeCerveja / 2);
+
+            var descontoPromocaoDois = Math.Truncate(Math.Min(quantidadeConhaque, quantidadeCerveja));
+            
+            pedidos.ForEach(item =>
             {
+                item.Desconto = 0;
+                // Aplica promoção 1
+                if (item.Id == (int)PedidoEnum.CERVEJA && descontoPromocaoUm > 0)
+                {
+                    item.Desconto = 2;
+                    descontoPromocaoUm--;
+                }
 
-            }
-            throw new NotImplementedException();
+                // Aplica promoção 2
+                if (item.Id == (int)PedidoEnum.AGUA && descontoPromocaoDois > 0)
+                {
+                    item.Desconto = 70;
+                    descontoPromocaoDois--;
+                }
+            });
+            
+            return pedidos;
         }
     }
 }

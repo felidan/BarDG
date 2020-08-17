@@ -9,6 +9,7 @@ namespace BarDg.Core.Domain.Services
         Task<int> RegistrarComandaAsync(List<Pedido> pedidos);
         Task LimparComandaAsync(int idComanda);
         Task<NotaFiscal> GerarNotaFiscalAsync(int idComanda);
+        Task<List<Pedido>> BuscarTodosPedidosAsync();
 
     }
 }

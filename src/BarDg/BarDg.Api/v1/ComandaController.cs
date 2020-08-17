@@ -74,5 +74,21 @@ namespace BarDg.Api.v1
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }
+
+        //[Authorize]
+        [HttpGet("BuscarTodosPedidos")]
+        public async Task<IActionResult> BuscarTodosPedidosAsync()
+        {
+            try
+            {
+                var pedidos =  Mapper.Map<List<PedidoDto>>(await _comandaService.BuscarTodosPedidosAsync());
+                return StatusCode(200, pedidos);
+            }
+            catch (Exception ex)
+            {
+                // TODO - Gravar log
+                return StatusCode(500, "Ocorreu um erro ao processar a requisição");
+            }
+        }
     }
 }
