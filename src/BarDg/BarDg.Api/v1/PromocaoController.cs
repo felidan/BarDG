@@ -2,6 +2,7 @@
 using BarDg.Api.Dto;
 using BarDg.Core.Domain.Model;
 using BarDg.Core.Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace BarDg.Api.v1
             _promocaoService = promocaoService;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("AplicarPromocao")]
         public async Task<IActionResult> AplicarPromocao([FromBody] List<PedidoDto> pedidos)
         {

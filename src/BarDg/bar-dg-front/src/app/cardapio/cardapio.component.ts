@@ -25,18 +25,22 @@ export class CardapioComponent implements OnInit {
 
     this.spinner.show();
 
-    this.service.getProdutos()
-    .subscribe(pedidosData => {  
-      this.pedidos = pedidosData;
+    this.service.loginApi()
+    .subscribe(result => {
+      ServicesService.token = result.token;
 
-      this.service.abrirComanda()
-      .subscribe(idComanda => {
-        this.comanda.idComanda = idComanda;
+      this.service.getProdutos()
+      .subscribe(pedidosData => {  
+        this.pedidos = pedidosData;
 
-        this.spinner.hide();
+        this.service.abrirComanda()
+        .subscribe(idComanda => {
+          this.comanda.idComanda = idComanda;
 
+          this.spinner.hide();
+
+        });
       });
-
     });  
   }
 

@@ -31,7 +31,11 @@ namespace BarDg.Api.v1
                 var login = Mapper.Map<ResultadoDto>(await _loginService.LoginAsync(Mapper.Map<UsuarioSistema>(usuario)));
 
                 if (login.Sucesso)
-                    return StatusCode(200, new { token = login, validade = _configuration["JwtExpiresMinutes"] });
+                {
+
+                    return StatusCode(200, new LoginDto() { Token = login.Mensagem, Validade = Int32.Parse(_configuration["JwtExpiresMinutes"]) });
+                }
+                    
                 else
                     return StatusCode(400, login);
 

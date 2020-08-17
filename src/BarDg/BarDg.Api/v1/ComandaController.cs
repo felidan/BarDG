@@ -21,7 +21,7 @@ namespace BarDg.Api.v1
             _comandaService = comandaService;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("AbrirComanda")]
         public async Task<IActionResult> AbrirComandaAsync()
         {
@@ -37,7 +37,7 @@ namespace BarDg.Api.v1
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("RegistrarComanda")]
         public async Task<IActionResult> RegistrarComandaAsync([FromBody] List<PedidoDto> pedidos)
         {
@@ -53,7 +53,7 @@ namespace BarDg.Api.v1
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpDelete("LimparComanda/{idComanda}")]
         public async Task<IActionResult> LimparComandaAsync(int idComanda)
         {
@@ -70,7 +70,7 @@ namespace BarDg.Api.v1
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("GerarNotaFiscal/{idComanda}")]
         public async Task<IActionResult> GerarNotaFiscalAsync(int idComanda)
         {
@@ -86,7 +86,7 @@ namespace BarDg.Api.v1
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("BuscarTodosPedidos")]
         public async Task<IActionResult> BuscarTodosPedidosAsync()
         {

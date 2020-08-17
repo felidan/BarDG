@@ -8,3 +8,5 @@ export const environment = {
 
 
 export const URL_API = 'https://localhost:44399/api/v1';
+export const SENHA_API = "BAR01";
+export const LOGIN_API = "BARDG";
