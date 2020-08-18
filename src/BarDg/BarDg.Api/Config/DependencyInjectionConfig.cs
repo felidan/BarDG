@@ -21,6 +21,7 @@ namespace BarDg.Api.Config
 
             services.AddScoped<IComandaService, ComandaService>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<ILogService, LogService>();
             services.AddScoped<IPromocaoService, PromocaoService>();
 
             #endregion
@@ -29,6 +30,7 @@ namespace BarDg.Api.Config
 
             services.AddScoped<IComandaRepository, ComandaRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<ILogRepository, LogRepository>();
             
             #endregion
 

@@ -15,17 +15,18 @@ namespace BarDg.Api.v1
     public class PromocaoController : ControllerBase
     {
         private readonly IPromocaoService _promocaoService;
+        private readonly ILogService _logService;
 
-        public PromocaoController(IPromocaoService promocaoService)
+        public PromocaoController(IPromocaoService promocaoService, ILogService logService)
         {
             _promocaoService = promocaoService;
+            _logService = logService;
         }
 
         [Authorize]
         [HttpPost("AplicarPromocao")]
         public async Task<IActionResult> AplicarPromocao([FromBody] List<PedidoDto> pedidos)
         {
-            // arrumar o warning
             try
             {
                 var pedidosComPromocao = _promocaoService.AplicarPromocao(Mapper.Map<List<Pedido>>(pedidos));
@@ -33,7 +34,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
-                // TODO - Gravar log
+                await _logService.InserirLogErroAsync(ex, "ERRO", pedidos);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }

@@ -22,119 +22,84 @@ namespace BarDg.Infra.Repository.Repositories
 
         public async Task<int> AbrirComandaAsync()
         {
-            try
+            using (IDbConnection con = new SqlConnection(_connectionString))
             {
-                using (IDbConnection con = new SqlConnection(_connectionString))
-                {
-                    var query = @"INSERT INTO [TbBDG_Comanda] VALUES (GETDATE())
+                var query = @"INSERT INTO [TbBDG_Comanda] VALUES (GETDATE())
                                   SELECT SCOPE_IDENTITY()";
 
-                    int idComanda = await con.QuerySingleOrDefaultAsync<int>(query);
+                int idComanda = await con.QuerySingleOrDefaultAsync<int>(query);
 
-                    return idComanda;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
+                return idComanda;
             }
         }
 
         public async Task<List<Pedido>> BuscarPedidoPorComandaAsync(int idComanda)
         {
-            try
+            using (IDbConnection con = new SqlConnection(_connectionString))
             {
-                using (IDbConnection con = new SqlConnection(_connectionString))
-                {
-                    var query = @"SELECT B.*, A.VL_DESCONTO_APLICADO AS 'Desconto'
+                var query = @"SELECT B.*, A.VL_DESCONTO_APLICADO AS 'Desconto'
                                 FROM [TbBDG_ComandaPedido] A 
                                 INNER JOIN [TbBDG_Pedidos] B ON A.ID_PEDIDO = B.ID_PEDIDO
                                 WHERE A.ID_COMANDA = @idComanda";
 
-                    var pedidos = await con.QueryAsync<Pedido>(query, new { idComanda });
+                var pedidos = await con.QueryAsync<Pedido>(query, new { idComanda });
 
-                    return pedidos.AsList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
+                return pedidos.AsList();
             }
         }
 
         public async Task<List<Pedido>> BuscarPedidosAsync()
         {
-            try
+            using (IDbConnection con = new SqlConnection(_connectionString))
             {
-                using (IDbConnection con = new SqlConnection(_connectionString))
-                {
-                    var query = @"SELECT *
+                var query = @"SELECT *
                                 FROM [TbBDG_Pedidos]";
 
-                    var pedidos = await con.QueryAsync<Pedido>(query);
+                var pedidos = await con.QueryAsync<Pedido>(query);
 
-                    return pedidos.AsList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
+                return pedidos.AsList();
             }
         }
 
         public async Task LimparComandaAsync(int idComanda)
         {
-            try
+            using (IDbConnection con = new SqlConnection(_connectionString))
             {
-                using (IDbConnection con = new SqlConnection(_connectionString))
-                {
-                    var query = @"DELETE FROM TbBDG_ComandaPedido WHERE ID_COMANDA = @idComanda";
+                var query = @"DELETE FROM TbBDG_ComandaPedido WHERE ID_COMANDA = @idComanda";
 
-                    await con.ExecuteAsync(query, new
-                    {
-                        idComanda
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
+                await con.ExecuteAsync(query, new
+                {
+                    idComanda
+                });
             }
         }
 
         public async Task<int> RegistrarComandaAsync(List<Pedido> pedidos)
         {
-            try
+            using (IDbConnection con = new SqlConnection(_connectionString))
             {
-                using (IDbConnection con = new SqlConnection(_connectionString))
+                if (pedidos.Count > 0)
                 {
-                    if(pedidos.Count > 0)
+                    var idComanda = pedidos.First().IdComanda;
+
+                    await LimparComandaAsync(idComanda);
+
+                    foreach (var pedido in pedidos)
                     {
-                        var idComanda = pedidos.First().IdComanda;
+                        var query = @"INSERT INTO[TbBDG_ComandaPedido] VALUES(@IdComanda, @Id, @Desconto)";
 
-                        await LimparComandaAsync(idComanda);
-
-                        foreach (var pedido in pedidos)
+                        await con.ExecuteAsync(query, new
                         {
-                            var query = @"INSERT INTO[TbBDG_ComandaPedido] VALUES(@IdComanda, @Id, @Desconto)";
-
-                            await con.ExecuteAsync(query, new
-                            {
-                                idComanda,
-                                pedido.Id,
-                                pedido.Desconto
-                            });
-                        }
-
-                        return idComanda;
+                            idComanda,
+                            pedido.Id,
+                            pedido.Desconto
+                        });
                     }
 
-                    return 0;
+                    return idComanda;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw;
+
+                return 0;
             }
         }
     }

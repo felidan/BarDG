@@ -14,3 +14,5 @@ D:\Projetos\BarDG\src\BarDg\BarDg.Infra.Repository\bin\Debug\netcoreapp2.2\Micro
 D:\Projetos\BarDG\src\BarDg\BarDg.Infra.Repository\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.xml
 D:\Projetos\BarDG\src\BarDg\BarDg.Infra.Repository\bin\Debug\netcoreapp2.2\System.Data.SqlClient.dll
 D:\Projetos\BarDG\src\BarDg\BarDg.Infra.Repository\bin\Debug\netcoreapp2.2\System.Data.SqlClient.xml
+D:\Projetos\BarDG\src\BarDg\BarDg.Infra.Repository\bin\Debug\netcoreapp2.2\Newtonsoft.Json.dll
+D:\Projetos\BarDG\src\BarDg\BarDg.Infra.Repository\bin\Debug\netcoreapp2.2\Newtonsoft.Json.xml

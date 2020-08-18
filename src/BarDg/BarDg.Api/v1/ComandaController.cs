@@ -15,10 +15,12 @@ namespace BarDg.Api.v1
     public class ComandaController : ControllerBase
     {
         private readonly IComandaService _comandaService;
+        private readonly ILogService _logService;
 
-        public ComandaController(IComandaService comandaService)
+        public ComandaController(IComandaService comandaService, ILogService logService)
         {
             _comandaService = comandaService;
+            _logService = logService;
         }
 
         [Authorize]
@@ -32,7 +34,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
-                // TODO - Gravar log
+                await _logService.InserirLogErroAsync(ex, "ERRO", null);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }
@@ -48,7 +50,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
-                // TODO - Gravar log
+                await _logService.InserirLogErroAsync(ex, "ERRO", pedidos);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }
@@ -65,7 +67,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
-                // TODO - Gravar log
+                await _logService.InserirLogErroAsync(ex, "ERRO", idComanda);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }
@@ -81,7 +83,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
-                // TODO - Gravar log
+                await _logService.InserirLogErroAsync(ex, "ERRO", idComanda);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }
@@ -97,7 +99,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
-                // TODO - Gravar log
+                await _logService.InserirLogErroAsync(ex, "ERRO", null);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }

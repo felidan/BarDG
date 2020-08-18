@@ -15,11 +15,13 @@ namespace BarDg.Api.v1
     {
         private readonly ILoginService _loginService;
         private readonly IConfiguration _configuration;
-
-        public LoginController(ILoginService loginService, IConfiguration configuration)
+        private readonly ILogService _logService;
+        
+        public LoginController(ILoginService loginService, IConfiguration configuration, ILogService logService)
         {
             _loginService = loginService;
             _configuration = configuration;
+            _logService = logService;
         }
 
 
@@ -42,6 +44,7 @@ namespace BarDg.Api.v1
             }
             catch (Exception ex)
             {
+                await _logService.InserirLogErroAsync(ex, "ERRO", usuario);
                 return StatusCode(500, "Ocorreu um erro ao processar a requisição");
             }
         }

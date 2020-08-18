@@ -1,14 +1,16 @@
 # Bar do DG - API em .Net Core e Front em Angular
 
-- Versão do Framework da API: .Net Core 2.2
-- Versão do Front-End Angular: 9.1.11
+- Versão do Framework da API: .Net Core 2.2 (\BarDG\src\BarDg\BarDg.sln)
+- Versão do Front-End Angular: 9.1.11 (\BarDG\src\BarDg\bar-dg-front)
 
-## _Pontos de evolução futura:_
+## Pontos de evolução futura:
 
 Criar uma tela para a consulta e listagem de demandas criadas.
 
-## _Estratégias:_
- 
+## Estratégias:
+
+Foi adotada a estratégia de utilizar tecnologias mais atuais como .Net core e Angular, pois o meu conhecimento é u pouco mais amplo nestas tecnologias. Estas tecnologias também são minhas ferramentas de trabalho atuais.
+A autenticação via token foi escolhida pela segurança e também ser uma ferramenta que está sendo muito utilizada nos dias atuais e também muito bem avaliada.
 
 ## Configurações
 
@@ -16,7 +18,7 @@ Criar uma tela para a consulta e listagem de demandas criadas.
 
 1. Executar o script de criação das tabelas (\BarDG\DB\1 - Banco.sql)
 2. Executar o script de geração das cargas das tabelas (\BarDG\DB\2 - Carga.sql)
-3. Opcional: Para criar um novo usuário de autenticação da API utilizar o scripts localizado em \BarDG\DB\Criar novo Usuário.sql alterar nas variaveis do front (Configurações 3 - Passo a Passo FRONT, observações).
+3. Opcional: Para criar um novo usuário de autenticação da API utilizar o script localizado em \BarDG\DB\Criar novo Usuário.sql alterar nas variaveis do front (Configurações 3 - Passo a Passo FRONT, observações).
 
 ### _2 - Passo a Passo API:_
 
@@ -41,7 +43,7 @@ OBS: As configurações do front (\BarDg\bar-dg-front\src\environments\environme
 
 Foi utilizada uma arquitetura Hexagonal.
 
-## Front-End Angular
+## __Front-End Angular__
 
 ![Front-End](https://github.com/felidan/BarDG/blob/master/Img/front.JPG)
 
@@ -61,7 +63,7 @@ Para acessar a documentação da API, gerada pelo Swagger, é necessário inclui
 
 Para conseguir utilizar os serviços da API é necessário a geração de um token JWT através da controller **/Login/Login** ([controller]/[método]) passando um usuário e senha de sistema. O front-end em Angular já realiza esta autenticação utilizando o usuário e senha padrão. 
 
-Para testar via Swagger é necessário antes utilizar o end-point citado acima para gerar um token e em seguida anexar o token no swagger clicando no botão 'Authorize' no cando superior direito. O token é valido dirante 30 minutos.
+Para testar via Swagger é necessário antes utilizar o end-point citado acima para gerar um token e em seguida anexar o token no swagger clicando no botão 'Authorize' no cando superior direito. O token é valido durante 30 minutos.
 
 Parâmetros do Swagger para a autenticação:
 {
