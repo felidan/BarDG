@@ -10,8 +10,8 @@ import { NotaFiscal } from '../Model/nota-fiscal';
 })
 export class NotaFiscalComponent implements OnInit {
 
-  idComanda: number;
-  notaFiscal: NotaFiscal
+  idComanda: number = 0;
+  notaFiscal: NotaFiscal = { idComanda: 0, pedidos: [], totalComDesconto: 0, totalSemDesconto:0 }
 
   constructor(private router: Router,
       private service: ServicesService,

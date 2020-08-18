@@ -8,7 +8,38 @@
       </section>
 
       <section class="content">
-        <p>{{notaFiscal | json}}</p>
+        <form>
+          
+          <table class="table table-sm">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pedido</th>
+                <th scope="col">valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedidoComprado of notaFiscal.pedidos; let i = index">
+                <td scope="row">{{i}}</td>
+                <td>{{pedidoComprado.nome}}</td>
+                <th>
+                   <p *ngIf="pedidoComprado.desconto > 0"> <s>{{ pedidoComprado.preco  | currency:'BRL':'symbol':'1.2-2':'pt' }}</s> {{ pedidoComprado.preco - pedidoComprado.desconto  | currency:'BRL':'symbol':'1.2-2':'pt' }}</p>
+                   <p *ngIf="pedidoComprado.desconto == 0">{{ pedidoComprado.preco | currency:'BRL':'symbol':'1.2-2':'pt' }}</p>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="form-group">
+            <h6> Total sem desconto: {{ notaFiscal.totalSemDesconto | currency:'BRL':'symbol':'1.2-2':'pt' }} </h6>
+          </div>
+          <div class="form-group">
+            <h6> Total de descontos: {{ (notaFiscal.totalSemDesconto - notaFiscal.totalComDesconto) | currency:'BRL':'symbol':'1.2-2':'pt' }} </h6>
+          </div>
+          <div class="form-group">
+            <h3> Total a pagar: {{ notaFiscal.totalComDesconto | currency:'BRL':'symbol':'1.2-2':'pt' }} </h3>
+          </div>
+        </form>
 
         <button class="btn btn-info" (click)="novaComanda()">Abrir nova comanda</button>
       </section>
