@@ -92,29 +92,7 @@ namespace BarDg.Core.Test
         #endregion
 
         #region LoginService
-
-        //[Fact]
-        //public async Task LoginServiceTest()
-        //{
-        //    UsuarioSistema usu = new UsuarioSistema()
-        //    {
-        //        Id = 17,
-        //        Ativo = true,
-        //        Login = "AAA",
-        //        Senha = "111",
-        //        SenhaOk = true
-        //    };
-            
-        //    var repository = new Mock<ILoginRepository>();
-        //    repository.Setup(s => s.LoginAsync(usu))
-        //        .Returns(Task.Run(() => usu));
-            
-        //    var service = new LoginService(repository.Object, Mock.Of<IConfiguration>());
-            
-        //    var result = await service.LoginAsync(usu);
-        //    Assert.True(result.Sucesso);
-        //}
-
+        
         [Fact]
         public async Task LoginFalhaServiceTest()
         {
