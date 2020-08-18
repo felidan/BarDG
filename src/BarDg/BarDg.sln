@@ -35,7 +35,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "bar-dg-front", "bar-dg-fron
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51223"
+		SlnRelativePath = "bar-dg-front\"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarDg.Core.Test", "BarDg.Core.Test\BarDg.Core.Test.csproj", "{B697CAE0-B691-488C-AD4F-B91CBBC5CD73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +66,10 @@ Global
 		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{013831A5-DEA0-4936-B8CB-9ED6D54DA227}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B697CAE0-B691-488C-AD4F-B91CBBC5CD73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B697CAE0-B691-488C-AD4F-B91CBBC5CD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B697CAE0-B691-488C-AD4F-B91CBBC5CD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B697CAE0-B691-488C-AD4F-B91CBBC5CD73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +80,7 @@ Global
 		{F680396D-6EC1-4406-9757-D21E92159397} = {A700D2F4-404A-4091-B987-8DB40074C161}
 		{82832D3E-0E53-4104-B5EC-EAB6381BD197} = {99B3B129-FBAF-431D-A343-B5FB9BE263D8}
 		{013831A5-DEA0-4936-B8CB-9ED6D54DA227} = {711085DD-8B03-4D8D-95CC-564FBD839C74}
+		{B697CAE0-B691-488C-AD4F-B91CBBC5CD73} = {A700D2F4-404A-4091-B987-8DB40074C161}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2422323E-459D-49AA-AC49-00D5D652BB7E}
